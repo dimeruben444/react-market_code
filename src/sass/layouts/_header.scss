@@ -1,5 +1,105 @@
-.header-content{
+.header-topbar{
     display: flex;
     justify-content: space-between;
+    background-color: var(--clr-text);
+    color: var(--clr-background);
+    span{
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+    span:nth-child(2) {
+        align-items: normal;
+        padding-top: 0.1rem;
+
+        i{
+           font-size: 1.5rem; 
+        }   
+    }
+}
+
+
+
+.header-content{
+    display: flex;
+    justify-content: space-around;
     align-items: center;
+    padding: 1rem 0;
+}
+
+.header-logo{
+    width: 3.5rem;
+}
+
+.header-icons{
+    display: flex;
+    gap: 2rem;
+    position: relative;
+    i{
+        color: var(--clr-text);
+        font-size: 2.2rem;
+    }
+
+    
+}
+
+.header-cart{
+    display: flex;
+    position: relative;
+
+    span{
+        background-color:var(--clr-text);
+        color: var(--clr-background);
+        border-radius: 50%;
+        align-self: flex-start;
+        padding:0 0.3rem ;
+        position: absolute;
+        bottom: 1.4rem;
+        left: 2.4rem;
+        
+    }
+    
+}
+
+
+
+
+
+
+/* --- MODO MÓVIL --- */
+@media (max-width: 768px) {
+  .header-topbar {
+    position: relative;
+    height: 28px; /* ajusta según tu diseño */
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center; /* centra horizontalmente */
+    align-items: center;     /* centra verticalmente */
+  }
+
+  .header-topbar span {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* centra cada span */
+    width: max-content;
+    opacity: 0;
+    animation: rotateText 12s infinite ease-in-out;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .header-topbar span:nth-child(1) { animation-delay: 0s; }
+  .header-topbar span:nth-child(2) { animation-delay: 3s; }
+  .header-topbar span:nth-child(3) { animation-delay: 6s; }
+  .header-topbar span:nth-child(4) { animation-delay: 9s; }
+
+  @keyframes rotateText {
+    0%   { opacity: 0; transform: translate(-50%, 10px); }   /* entra desde abajo */
+    8%  { opacity: 1; transform: translate(-50%, 0); }      /* centrado */
+    25%  { opacity: 1; transform: translate(-50%, 0); }      /* visible */
+    30%  { opacity: 1; transform: translate(-50%, -30px); }  /* empieza a subir */
+    33%  { opacity: 0; transform: translate(-50%, -40px); }  /* sale completamente */
+    100% { opacity: 0; transform: translate(-50%, -40px); }  /* fuera del área */
+  }
 }
