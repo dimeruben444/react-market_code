@@ -1,8 +1,25 @@
 import React from 'react'
 
-function Cart() {
+
+const Cart = () =>{
+
+  const urlProducts = "https://dummyjson.com/products"
+
+  const getAllProducts = async() =>{
+    const allProducts = await fetch(urlProducts)
+    .then((response)=>{
+      response.ok? response.json : Promise.reject(`mensaje error`)
+    })
+    .then((products)=> products)
+    .catch((error)=> console.log(error))
+
+    console.log(allProducts)
+  }
+
+  getAllProducts()
+
   return (
-    <div>Cart</div>
+    <div></div>
   )
 }
 
