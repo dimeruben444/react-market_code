@@ -6,7 +6,7 @@ import logo from "/favicon-128.svg?url"
 
 
 
-function Header() {
+const Header=()=> {
 
   return (
     <>

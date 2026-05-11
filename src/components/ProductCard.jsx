@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ProductCard() {
+const ProductCard =({product}) => {
   return (
     <div>ProductCard</div>
   )

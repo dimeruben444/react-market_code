@@ -26,6 +26,9 @@ export function CartContextProvider({ children }) {
 
 
 
+
+
+  ///FUNCIONES QUE MODIFICAN EL CARRITO
   //funcion que añade producto que se pasa por parametro al carrito
   const addToCart =(productToAdd)=>{
 
@@ -61,13 +64,124 @@ export function CartContextProvider({ children }) {
       setCartItems(newCartItems)
     }
   }
+
+
     
-  //funcion que borra  
-  
+  //funcion que borra producto del carrito
+  const removeFromCart = (productFromRemove)=>{
+
+    //devuelve un array sin ese producto 
+    const newCartItems = cartItems.filter((item)=>{
+      return item.id !== productFromRemove.id
+    })
+
+    setCartItems(newCartItems)//setea el carrito sin el producto indicado
+  }
+
+
+
+  //funcion que resta uno a la cantidad de un producto del carrito 
+  const decreaseQuantity =(productToDecrease)=>{
+
+     // Si solo queda 1 → eliminarlo
+    if(productToDecrease.quantity ===1){
+      const newCartItems = cartItems.filter((item)=>{
+        return item.id !== productToDecrease.id
+      })
+      
+      setCartItems(newCartItems)
+      return
+    }
+
+
+    // Si hay más de 1 → restar
+    const newCartItems = cartItems.map((item)=>{
+
+      if (item.id === productToDecrease.id){
+        return{
+          ...item, 
+          quantity: item.quantity - 1
+        }
+      }else{
+        return item
+      }  
+    })
+
+    setCartItems(newCartItems)
+  }
+
+  //vaciar todo el carrito
+  const clearCart = () => {
+    setCartItems([])
+  }
+
+
+
+
+
+
+  ///FUNCIONES QUE DEVUELVEN DATOS 
+
+  //devuelve el numero de articulos del carrito
+  const getCartCount = ()=>{
+    const cartCount = cartItems.reduce((acum, item)=>{
+      return acum + item.quantity
+
+    },0)
+
+    return cartCount
+  }
+
+
+  //capcula el precio total del carrito
+  const getCartTotal= ()=>{
+
+    const cartTotal = cartItems.reduce((acum, item)=>{
+      return acum +  ((item.quantity * item.price) * ( 1- item.discountPercentage /100)) 
+    },0)
+
+    return Number(cartTotal).toFixed(2)
+  }
+
+
+  //calcula el precio total del producto antes y despues del descuento 
+  const getTotalProduct = (product) =>{
+
+    const totalDiscount = ((product.quantity * product.price) * ( 1- product.discountPercentage /100))
+    const totalBeforeDiscount = product.quantity * product.price
+
+    return { 
+      beforeDiscount : Number(totalBeforeDiscount.toFixed(2)),
+      totalProduct: Number(totalDiscount.toFixed(2))
+    }
+  }
+
+  //devuelve true or false si el producto se encuentra en el carrito 
+  const isInCart = (productId) => {
+    return cartItems.some(item => item.id === productId)
+  }
+
+
+
+
+
 
   return (
     <CartContext.Provider value={{
-      cartItems,
+      
+      cartItems,// CARRITO
+
+      //FUNCIONES QUE MODIFICAN EL CARRITO 
+      addToCart,
+      removeFromCart,
+      decreaseQuantity,
+      clearCart,
+
+      //FUNCIONES QUE DEVUELVEN DATOS DEL CARRITO
+      getCartCount,
+      getCartTotal,
+      getTotalProduct,
+      isInCart
       
     }}>
 
