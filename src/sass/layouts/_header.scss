@@ -1,3 +1,12 @@
+header{
+    position: sticky;
+  top: 0;
+  background: var(--clr-background);
+  z-index: 10;
+}
+
+
+
 .header-topbar{
     display: flex;
     justify-content: space-between;

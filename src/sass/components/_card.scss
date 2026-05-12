@@ -1,0 +1,49 @@
+.card{
+    padding: 1rem;
+}
+
+
+.card-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;   /* número de líneas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.card-prices{
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: baseline;
+}
+
+.card-prices-before{
+    text-decoration: line-through;
+    color: gray;
+}
+
+.card-prices-after{
+    font-size: larger;
+    font-weight: bold;
+}
+
+.card-action{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-action-avaliable{
+    color: red;
+}
+    
+
+.stock{
+    color: green
+}
+
+
+.card-action-button{
+
+}

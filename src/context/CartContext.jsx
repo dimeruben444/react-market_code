@@ -156,10 +156,14 @@ export function CartContextProvider({ children }) {
     }
   }
 
+
   //devuelve true or false si el producto se encuentra en el carrito 
   const isInCart = (productId) => {
     return cartItems.some(item => item.id === productId)
   }
+
+
+
 
 
 

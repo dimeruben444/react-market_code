@@ -30,9 +30,7 @@ const Home =() =>{
 
   },[])
         
-  useEffect(() => {
-    console.log("YA TENGO LOS DATOS:", products)
-  }, [products])
+  
 
 
   
@@ -47,9 +45,9 @@ const Home =() =>{
     </section>
 
     <section className='home-grid'>
-  {/*     {products.map((product )=>{
-        return <article key={product.id}></article>
-      })} */}
+      {products.map((product )=>{
+        return <article key={product.id}>{<ProductCard product={product} />}</article>
+      })}
       
     </section>
     </>

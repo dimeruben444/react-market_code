@@ -8,7 +8,7 @@ function App() {
   return (
     <BrowserRouter basename="/react-market_pages">
       
-      <header >
+      <header  >
        <Header /> 
       </header>
       

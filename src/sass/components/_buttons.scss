@@ -9,11 +9,11 @@
 .button {
   @extend %btn;
   padding: 0.75em 1.5em;
-  color: var(--clr-text);
+  color: var(--clr-background);
   text-decoration: none;
-  background-color: var(--clr-primary);
+  background-color: var(--clr-text);
   border: 1px solid var(--clr-secondary);
-  border-radius: 0.5em;
+  border-radius: 0;
 
   &:hover {
     background-color: var(--clr-secondary);
