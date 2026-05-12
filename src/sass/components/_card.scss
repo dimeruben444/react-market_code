@@ -1,7 +1,17 @@
+
+
 .card{
     padding: 1rem;
+    background-color: var(--clr-white);
+    border-radius: 2rem;
+
 }
 
+
+.card-img{
+    border: 1px solid var(--clr-text);
+    
+}
 
 .card-description {
   display: -webkit-box;

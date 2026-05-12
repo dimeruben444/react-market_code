@@ -46,7 +46,7 @@ const Home =() =>{
 
     <section className='home-grid'>
       {products.map((product )=>{
-        return <article key={product.id}>{<ProductCard product={product} />}</article>
+        return <article className='card-container' key={product.id}>{<ProductCard product={product} />}</article>
       })}
       
     </section>
