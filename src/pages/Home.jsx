@@ -4,10 +4,12 @@ import ProductCard from '../components/ProductCard'
 const Home =() =>{
 
   const [products , setProducts] = useState([])
+  const [limit , setLimit] = useState([])
+  const [skip , setSkip] = useState([])
+//
+  const urlProducts = `https://dummyjson.com/products?limit=${0}&skip=${0}`
 
   useEffect(()=>{
-    
-    const urlProducts = "https://dummyjson.com/products"
 
     const getAllProducts = async() =>{
       const allProducts = await fetch(urlProducts)
@@ -16,22 +18,16 @@ const Home =() =>{
       })
       .then((productos)=> setProducts(productos.products))
       .catch((error)=> console.log(error))
-
-      
-      
     }
 
-
     getAllProducts()
-
-   
-    
-    
-
   },[])
         
   
+  const handlePagination =()=>{
 
+
+  }
 
   
  
@@ -50,6 +46,10 @@ const Home =() =>{
       })}
       
     </section>
+    <section className='home-pagination'>
+      <button className='home-pagination-btn btn'
+              >Ver Más</button>
+      </section>
     </>
   )
 }

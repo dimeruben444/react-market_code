@@ -3,6 +3,8 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import ProductDetail from "./pages/ProductDetail";
 import CartPage from "./pages/CartPage";
+import CategoryPage from "./pages/CategoryPage"
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/category/:mainCategory" element={<CategoryPage />} />
         </Routes>
       </main>
 
