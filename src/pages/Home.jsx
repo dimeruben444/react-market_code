@@ -1,55 +1,69 @@
 import React, { useEffect, useState } from 'react'
-import ProductCard from '../components/ProductCard'
+import CategoryCard from '../components/CategoryCard';
+
+import electronicsImg from "../assets/electronics.jpg";
+import menImg from "../assets/men.jpg";
+import womenImg from "../assets/women.jpg";
+import beautyImg from "../assets/beauty.jpg";
+import homeImg from "../assets/home.jpg";
+import vehiclesImg from "../assets/vehicles.jpg";
+
 
 const Home =() =>{
 
-  const [products , setProducts] = useState([])
-  const [limit , setLimit] = useState([])
-  const [skip , setSkip] = useState([])
-//
-  const urlProducts = `https://dummyjson.com/products?limit=${0}&skip=${0}`
+  const categories = [
+    { name:"Men",
+      image:menImg,
+      descript: "Tu mejor versión empieza aquí"
+    },
 
-  useEffect(()=>{
+    { name:"Electronics",
+      image: electronicsImg,
+      descript: "Haz más, vive más"
+    },
 
-    const getAllProducts = async() =>{
-      const allProducts = await fetch(urlProducts)
-      .then((response)=>{
-        return response.ok? response.json() : Promise.reject(`mensaje error`)
-      })
-      .then((productos)=> setProducts(productos.products))
-      .catch((error)=> console.log(error))
-    }
+    { name:"Vehicles",
+      image:vehiclesImg,
+      descript: "Diseñado para sentir"
+    },
 
-    getAllProducts()
-  },[])
-        
-  
-  const handlePagination =()=>{
+    { name:"Women",
+      image:womenImg,
+      descript: "Brilla a tu manera"
+    },
 
+    { name:"Beauty",
+      image:beautyImg,
+      descript: "Confianza en cada detalle"
+    },
+    { name:"Home",
+      image:homeImg,
+      descript: "Crea momentos que importan"
+    },
+    
+    
+  ]
 
-  }
-
-  
  
 
 
 
   return (
     <>
-    <section className='home-searchbar'>
+  {/*   <section className='home-searchbar'>
       <input type="text" />
-    </section>
+    </section> */}
 
     <section className='home-grid'>
-      {products.map((product )=>{
-        return <article className='card-container' key={product.id}>{<ProductCard product={product} />}</article>
+      {categories.map((category, index )=>{
+        return <article className='category-container' key={index}>
+                  <CategoryCard categoryname={category.name}
+                  categoryimage={category.image}
+                  categorydescript={category.descript}/>
+                </article>
       })}
       
     </section>
-    <section className='home-pagination'>
-      <button className='home-pagination-btn btn'
-              >Ver Más</button>
-      </section>
     </>
   )
 }
