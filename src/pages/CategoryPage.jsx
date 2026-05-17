@@ -92,22 +92,10 @@ const CategoryPage = () => {
 
   }, [currentIndex])
 
-  
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-  
+  // Escroll infinito
   useEffect(()=>{
     if (!sensorRef.current) return  // comprueba si el sensor existe sino return hace que el observer no se pueda crear antes de que react haya renderizado el div sensorref
     

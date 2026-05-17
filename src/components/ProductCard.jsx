@@ -26,20 +26,17 @@ const ProductCard =({product}) => {
       <img className='card-img' src={product.images[0]} alt="" />
       <h3>{product.title}</h3>
       <h4>{product.brand}</h4>
-      <p className='card-description'>{product.description}</p>
+      
       
       <div className='card-prices'>
+        
+        
+        <div className='card-prices-after' >{after} €</div>-
         <div className='card-prices-before' >{before}</div>
-        ⮕
-        <div className='card-prices-after' >{after} €</div>
       </div>
 
 
-      <div className='card-action'>
-        <div className={`card-action-avaliable ${isAvailable? "stock" : ""}`} >{product.availabilityStatus}</div> 
-        <button className='card-action-button button' disabled={!isAvailable} onClick={() => addToCart(product)}>Comprar</button>
-      </div>
-
+      
       
     </div>
   )

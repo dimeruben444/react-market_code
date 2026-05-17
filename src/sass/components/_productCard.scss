@@ -1,18 +1,16 @@
 @use "../abstracts" as *;
 
 .card {
-  background: #fff;
+  background-color: var(--clr-white);
   border-radius: 0px;
   padding: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
+  
   transition: transform .2s ease, box-shadow .2s ease;
 
-   @include mq(lg) {
-    gap: 0.9rem;
-  }
+   
 }
 
 
@@ -22,17 +20,25 @@
 }
 
 .card-img {
+  background: radial-gradient(
+  circle,
+  #f5f5f5 0%,     /* centro claro */
+  #e0e0e0 40%,    /* transición */
+  #cfcfcf 100%    /* bordes más grises */
+);
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transform: scale(1.1)
+  transform: scale(1.1);
+  margin-bottom: 0.4rem;
 }
 
 .card h3 {
   font-size: 1.1rem;
   font-weight: 600;
   color: #222;
+  margin-bottom: 0;
 }
 
 .card h4 {
@@ -41,31 +47,16 @@
   margin: 0;
 }
 
-.card-description {
-  font-size: .85rem;
-  color: #555;
-  height: 40px;
-  overflow: hidden;
-  margin: 0;
-  margin-bottom: 0.4rem;
 
-  @include mq(lg) {
-    margin-bottom: 0;
-  }
-
-}
 
 .card-prices {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 8px;
   font-size: 1rem;
   margin-bottom: 0.8rem;
 
-  @include mq(lg) {
-    justify-content: end;
-  }
+ 
 }
 
 .card-prices-before {
@@ -78,40 +69,3 @@
   color: #e63946;
 }
 
-.card-action {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.card-action-avaliable {
-  font-size: .8rem;
-  padding: 4px 8px;
-  border-radius: 0;
-  background: #ddd;
-  color: #444;
-}
-
-.card-action-avaliable.stock {
-  background: #4caf50;
-  color: white;
-}
-
-.card-action-button {
-  padding: 8px 14px;
-  border: none;
-  border-radius: 6px;
-  background: #1e88e5;
-  color: white;
-  cursor: pointer;
-  transition: background .2s ease;
-}
-
-.card-action-button:disabled {
-  background: #aaa;
-  cursor: not-allowed;
-}
-
-.card-action-button:hover:not(:disabled) {
-  background: #1565c0;
-}
