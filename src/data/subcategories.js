@@ -7,8 +7,8 @@ export const subcategories = {
   ],
 
   Vehicles: [
+    "vehicle",
     "motorcycle", 
-    "vehicle"
   ],
 
 
@@ -23,10 +23,10 @@ export const subcategories = {
   Women: [
     "womens-bags",
     "womens-dresses",
-    "womens-jewellery",
     "womens-shoes",
+    "tops",
+    "womens-jewellery",
     "womens-watches",
-    "tops"
   ],
 
   Beauty: [

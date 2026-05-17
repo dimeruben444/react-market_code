@@ -12,7 +12,7 @@ const CategoryCard = ({categoryname , categoryimage, categorydescript}) => {
         <h2>{categoryname}</h2>
         <button className="category-card__button">Comprar</button>
       </div>
-      <img src={categoryimage} alt={categoryname} className="category-card__image" />
+      <img src={`${categoryimage}?width=300&quality=60`} alt={categoryname} className="category-card__image" loading='lazy' />
       
     </Link>
   )

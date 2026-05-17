@@ -1,14 +1,25 @@
 @use "../abstracts" as *;
 
-
-.home-grid{
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    background-color: var(--clr-background) ;
-
-    @include mq(lg){
-        grid-template-columns: repeat(2, 1fr);
-    }
+.home-grid {
+  display: grid;
+  gap: 1rem;
+  background-color: var(--clr-background);
 }
 
+
+.home-grid.grid-home {
+  grid-template-columns: 1fr;
+
+  @include mq(lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+.home-grid.grid-products {
+  grid-template-columns: repeat(2, 1fr);
+
+  @include mq(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

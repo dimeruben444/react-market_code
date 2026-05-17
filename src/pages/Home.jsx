@@ -44,17 +44,13 @@ const Home =() =>{
     
   ]
 
- 
-
-
-
   return (
     <>
   {/*   <section className='home-searchbar'>
       <input type="text" />
     </section> */}
 
-    <section className='home-grid'>
+    <section  className="home-grid grid-home">
       {categories.map((category, index )=>{
         return <article className='category-container' key={index}>
                   <CategoryCard categoryname={category.name}

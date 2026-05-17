@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import ProductDetail from "./pages/ProductDetail";
@@ -8,7 +8,7 @@ import CategoryPage from "./pages/CategoryPage"
 
 function App() {
   return (
-    <BrowserRouter basename="/react-market_pages">
+    <HashRouter>
       
       <header  >
        <Header /> 
@@ -25,7 +25,7 @@ function App() {
       </main>
 
 
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
